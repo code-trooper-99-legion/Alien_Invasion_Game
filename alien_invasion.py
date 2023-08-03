@@ -40,7 +40,6 @@ class AlienInvasion:
         
             self._update_screen() 
          # end while
-         
     # end def
     
     def _check_events(self):
@@ -81,8 +80,7 @@ class AlienInvasion:
             sys.exit()
             
         elif event.key == pygame.K_SPACE:
-            self._fire_bullet()   
-                    
+            self._fire_bullet()
     # end def _check_keydown_events
 
     def _check_keyup_events(self, event):
