@@ -81,8 +81,7 @@ class AlienInvasion:
             sys.exit()
             
         elif event.key == pygame.K_SPACE:
-            self._fire_bullet()
-            
+            self._fire_bullet()   
                     
     # end def _check_keydown_events
 
@@ -109,7 +108,7 @@ class AlienInvasion:
             self.bullets.add(new_bullet) 
         # end if
         
-    # # end def
+    # # end def _fire_bullet
     
     def _update_bullets(self):
         """
@@ -126,7 +125,6 @@ class AlienInvasion:
             # end if
         # end for
             # print(len(self.bullets)) 
-    
     # end def
     
     def _update_screen(self):
@@ -140,11 +138,9 @@ class AlienInvasion:
         #     # comment: 
             bullet.draw_bullet()
         # end for
-        
         # Показати останій намальваний екран
         pygame.display.flip()        
     # end def _update_screen
-
     # pass
 
 if __name__ == '__main__':
