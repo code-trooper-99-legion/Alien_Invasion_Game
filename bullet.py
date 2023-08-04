@@ -30,7 +30,7 @@ class Bullet (Sprite):
         """
         Purpose: Посунути  кулю нагору екраном. 
         """
-        # Оновити десятковуц позицію кулі.
+        # Оновити початкову позицію кулі.
         self.y -= self.settings.bullet_speed
         # Оновити позицію rect.
         self.rect.y = self.y
