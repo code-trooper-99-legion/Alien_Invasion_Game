@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 
 import pygame
@@ -5,6 +7,8 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Alien
+
 
 class AlienInvasion:
     """" Загальний клас, що керує ресурсами та поведінкою гри"""
@@ -25,7 +29,9 @@ class AlienInvasion:
         
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
         
+        self._create_fleet()
         # Задати колір фону
         # self.bg_color = (230, 230, 230)
     # end def __init__
@@ -125,6 +131,15 @@ class AlienInvasion:
             # print(len(self.bullets)) 
     # end def
     
+    def _create_fleet(self):
+        """
+        Purpose: Створити флот прибульців
+        """
+        # Створити прибульця
+        alien = Alien(self)
+        self.aliens.add(alien)
+    # end def
+    
     def _update_screen(self):
         """
         Purpose: Оновити зображення на екрані та перемикнутися на новий екран
@@ -136,6 +151,7 @@ class AlienInvasion:
         #     # comment: 
             bullet.draw_bullet()
         # end for
+        self.aliens.draw(self.screen)
         # Показати останій намальваний екран
         pygame.display.flip()        
     # end def _update_screen
