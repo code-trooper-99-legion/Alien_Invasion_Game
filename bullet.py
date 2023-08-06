@@ -25,6 +25,7 @@ class Bullet (Sprite):
         self.rect.midtop = ai_game.ship.rect.midtop
         # Зберігати позицію кулі як десяткове значення.
         self.y = float(self.rect.y)
+    # end def __init__
     
     def update(self):
         """

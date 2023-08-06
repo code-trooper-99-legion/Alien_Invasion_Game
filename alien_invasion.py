@@ -46,7 +46,7 @@ class AlienInvasion:
         
             self._update_screen() 
          # end while
-    # end def
+    # end def run_game
     
     def _check_events(self):
         """
@@ -68,7 +68,7 @@ class AlienInvasion:
                 # comment: Реєстрація відпуcкання клавіш
                 self._check_keyup_events(event)
         # end for         
-    # end def
+    # end def _check_events
 
     def _check_keydown_events(self, event):
         """
@@ -111,7 +111,6 @@ class AlienInvasion:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet) 
         # end if
-        
     # # end def _fire_bullet
     
     def _update_bullets(self):
@@ -129,7 +128,7 @@ class AlienInvasion:
             # end if
         # end for
             # print(len(self.bullets)) 
-    # end def
+    # end def _update_bullets
     
     def _create_fleet(self):
         """
@@ -138,7 +137,7 @@ class AlienInvasion:
         # Створити прибульця
         alien = Alien(self)
         self.aliens.add(alien)
-    # end def
+    # end def _create_fleet
     
     def _update_screen(self):
         """
