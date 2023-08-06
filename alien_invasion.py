@@ -145,7 +145,7 @@ class AlienInvasion:
         for alien_number in range (number_aliens_x):
             # comment: Створити прибульця та поставити його до ряду.  
             alien = Alien(self)
-            alien.x = alien_width + 2 * alien_width * alien_width
+            alien.x = alien_width + 2 * alien_width * alien_number
             alien.rect.x = alien.x
             self.aliens.add(alien)
         # end for
