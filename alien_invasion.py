@@ -134,9 +134,21 @@ class AlienInvasion:
         """
         Purpose: Створити флот прибульців
         """
-        # Створити прибульця
+        # Створити прибульцiв та визначити кiлькiсть прибульцiв у ряду
+        # Вiдстань мiж прибульцями дорiвнює ширинi одного прибульця.
         alien = Alien(self)
-        self.aliens.add(alien)
+        alien_width = alien.rect.width
+        available_space_x = self.settings.screen_windth - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+        
+        # Створити перший ряд прибульцiв
+        for alien_number in range (number_aliens_x):
+            # comment: Створити прибульця та поставити його до ряду.  
+            alien = Alien(self)
+            alien.x = alien_width + 2 * alien_width * alien_width
+            alien.rect.x = alien.x
+            self.aliens.add(alien)
+        # end for
     # end def _create_fleet
     
     def _update_screen(self):
