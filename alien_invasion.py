@@ -137,14 +137,21 @@ class AlienInvasion:
         # Створити прибульцiв та визначити кiлькiсть прибульцiв у ряду
         # Вiдстань мiж прибульцями дорiвнює ширинi одного прибульця.
         alien = Alien(self)
-        alien_width = alien.rect.width
+        alien_width, alien_height = alien.rect.size
         available_space_x = self.settings.screen_windth - (2 * alien_width)
         number_aliens_x = available_space_x // (2 * alien_width)
         
-        # Створити перший ряд прибульцiв
-        for alien_number in range (number_aliens_x):
+        #Визначити, яка кiлькiсть рядiв прибульцiв помiщається на екранi/
+        ship_height = self.ship.rect.height
+        available_space_y = (self.settings.screen_height - 
+                             (3 * alien_height) - ship_height)
+        number_rows = available_space_y // (2 * alien_height)
+        
+        # Сторити повний флот прибульцiв.
+        for row_number in range (number_rows):
+            for alien_number in range (number_aliens_x):
             # comment: Створити прибульця та поставити його до ряду.
-            self._create_alien(alien_number)
+                self._create_alien(alien_number, row_number)
         # end for
     # end def _create_fleet
     
@@ -153,10 +160,11 @@ class AlienInvasion:
         Purpose: Створити прибульця та поставити його до ряду
         """
         alien = Alien(self)
-        alien_width = alien.rect.width
+        alien_width, alien_height = alien.rect.size
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
-        self.aliens.add(alien)
+        alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
+        self.aliens.add(alien) 
         
     # end def _create_alien
     
