@@ -155,7 +155,7 @@ class AlienInvasion:
         # end for
     # end def _create_fleet
     
-    def _create_alien(self, alien_number):
+    def _create_alien(self, alien_number, row_number):
         """
         Purpose: Створити прибульця та поставити його до ряду
         """
