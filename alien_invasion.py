@@ -143,13 +143,22 @@ class AlienInvasion:
         
         # Створити перший ряд прибульцiв
         for alien_number in range (number_aliens_x):
-            # comment: Створити прибульця та поставити його до ряду.  
-            alien = Alien(self)
-            alien.x = alien_width + 2 * alien_width * alien_number
-            alien.rect.x = alien.x
-            self.aliens.add(alien)
+            # comment: Створити прибульця та поставити його до ряду.
+            self._create_alien(alien_number)
         # end for
     # end def _create_fleet
+    
+    def _create_alien(self, alien_number):
+        """
+        Purpose: Створити прибульця та поставити його до ряду
+        """
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        self.aliens.add(alien)
+        
+    # end def _create_alien
     
     def _update_screen(self):
         """
